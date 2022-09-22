@@ -27,11 +27,11 @@ public class MusicBackgroundServiceActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (isMyServiceRunning(MusicBackgroundServiceActivity.class)){
                     //true
-                    binding.btnLaunchMusic.setText("Stopped");
+                    binding.btnLaunchMusic.setText("Start");
                     stopService(new Intent(MusicBackgroundServiceActivity.this, BackgroundService.class));
                 }else {
                     //false
-                    binding.btnLaunchMusic.setText("Started");
+                    binding.btnLaunchMusic.setText("Stop");
                     startService(new Intent(MusicBackgroundServiceActivity.this, BackgroundService.class));
                 }
             }

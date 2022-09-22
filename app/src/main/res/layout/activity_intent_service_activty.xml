@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="IntentService and BroadcastReceiver Example"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:paddingTop="20dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="Enter domain name | Website"/>
+
+        <Button
+            android:layout_gravity="center"
+            android:text="Send Request to The Service"
+            android:id="@+id/sendRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/linearLayout1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Response from IntentService"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="wrap_content"
+                android:paddingTop="25dp" />
+
+            <TextView
+                android:text=""
+                android:layout_height="wrap_content"
+                android:id="@+id/response"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <WebView
+            android:layout_width="match_parent"
+            android:id="@+id/myWebView"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</layout>
