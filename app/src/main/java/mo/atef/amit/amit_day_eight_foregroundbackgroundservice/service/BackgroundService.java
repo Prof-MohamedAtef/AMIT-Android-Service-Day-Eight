@@ -36,6 +36,11 @@ public class BackgroundService extends Service {
         return START_STICKY;
     }
 
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.e("BackgroundUnbind","Unbind");
+        return super.onUnbind(intent);
+    }
 
     @Override
     public void onDestroy() {
