@@ -16,24 +16,37 @@ import mo.atef.amit.amit_day_eight_foregroundbackgroundservice.service.Backgroun
 public class MusicBackgroundServiceActivity extends AppCompatActivity {
 
     ActivityBackgroundServiceBinding binding;
+    private Intent backgroundService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_background_service);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_background_service);
+        backgroundService=new Intent(MusicBackgroundServiceActivity.this, BackgroundService.class);
         binding.btnLaunchMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isMyServiceRunning(MusicBackgroundServiceActivity.class)){
-                    //true
-                    binding.btnLaunchMusic.setText("Start");
-                    stopService(new Intent(MusicBackgroundServiceActivity.this, BackgroundService.class));
-                }else {
-                    //false
-                    binding.btnLaunchMusic.setText("Stop");
-                    startService(new Intent(MusicBackgroundServiceActivity.this, BackgroundService.class));
-                }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        startService(backgroundService);
+                    }
+                }).start();
+                binding.btnLaunchMusic.setText("Start");
+            }
+        });
+        
+        
+        binding.btnStopMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        stopService(backgroundService);
+                    }
+                }).start();
+                binding.btnLaunchMusic.setText("Stop");
             }
         });
     }
