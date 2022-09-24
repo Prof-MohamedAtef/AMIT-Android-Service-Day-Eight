@@ -40,12 +40,7 @@ public class MusicBackgroundServiceActivity extends AppCompatActivity {
         binding.btnStopMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        stopService(backgroundService);
-                    }
-                }).start();
+                stopService(backgroundService);
                 binding.btnLaunchMusic.setText("Stop");
             }
         });

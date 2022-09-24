@@ -37,12 +37,7 @@ public class ForegroundServiceActivity extends AppCompatActivity {
         binding.buttonStopService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        stopService_();
-                    }
-                }).start();
+                stopService_();
             }
         });
     }
